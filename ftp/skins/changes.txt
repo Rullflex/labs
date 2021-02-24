@@ -1,0 +1,41 @@
+loginform.template.php {
+	48. Email and privacy policies - style= display: none
+	136. Email and privacy policies - style= display: none
+	281. Email and privacy policies - style= display: none
+}
+Кодировка php файлов для коректного русского - win1251 Cyrillic
+
+settings.inc.php {
+$net2ftp_settings["message_browse"] = "Примечание"; Сюда вписывать сообщение
+}
+
+images { иконки изменены }
+
+footer.template.php { Privacy Policy снизу - style= display: none}
+
+styled-elements.css { -box - изменены цвета, границы, удалены изображения в некоторых из них }
+
+}
+main_desctop.ltr.css {
+	8. @import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+	32. 
+	/*background: #f1f1f1 url(../img/bg/patterns/obl-1x1.png);*/
+	background-color: rgb(224, 224, 224);
+	font-family: 'PT Sans';
+	46.
+	-webkit-box-shadow: -4px -4px 6px 0 white, 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+    	box-shadow: -4px -4px 6px 0 white, 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+
+1077. #BrowseForm #smallbutton{
+	background: #003470;
+	color: #ffffff;
+	1085. /*padding: 1px 3px;*/
+1121. #LogoutButton{
+	background: #003470;
+1181. #sidebar{
+	display: none;   //Удаление сайдбара с начальной
+1285. #footer #bottom a{
+	color: #ffffff; c желтого на белый
+}
+
+main_mobile.ltr.css {Анологично выше}

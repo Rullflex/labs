@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	
+	<title>Бинарные деревья</title>
+	<!-- Meta Data -->
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Dmitry Gorshkov">
+	<meta name="description" content="Обучающие материалы по теме: Бинарные деревья, реализованных на C++. Материал подготовлен кафедрой ИТАС ПНИПУ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- <meta name="robots" content="noindex, nofollow" /> -->
+	<!-- Links -->
+	<link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/hdx.css">
+	<link rel="stylesheet" href="../css/themes/kimbie-light.css">
+
+	<!-- Head Scripts -->
+	<script src="https://kit.fontawesome.com/49e499dad5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+	<div class="container">
+		<div class="header-body">
+		</div>
+	</div>
+</header>
+		
+		<div class='container-fluid'>
+			<div class="row">
+			<!-- Aside Desktop -->
+			<aside class="col-md aside-desktop">
+			
+				<header><h1><a href="http://info.rully.ru/binary-tree/" title="http://info.rully.ru/binary-tree/">Бинарные деревья</a></h1>
+				
+					<p>
+						<i class="fas fa-caret-left"></i> <a href="http://info.rully.ru/" title="http://info.rully.ru/">На главную</a>
+						<br>
+						<i class="fas fa-caret-right"></i> <a href="/binary-tree/lab/">Лабораторная работа №19</a>
+					</p>
+				</header>
+				<hr>
+				<button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside > nav" data-toggle="collapse">
+					Меню
+				</button>
+				<nav class="collapse d-md-block">
+					<ol start="1">
+						<li><a href="#1">Краткие теоретические сведения</a></li>
+						<li><a href="#2">Обход дерева</a></li>
+					</ol>
+				</nav>
+				<hr>
+			</aside>
+			<!-- End Aside Desktop-->
+			<!-- Aside Device -->
+			<aside class="col-md aside-device">
+			
+				<header><h1><a href="http://info.rully.ru/binary-tree/" title="http://info.rully.ru/binary-tree/">Бинарные деревья</a></h1>
+				
+					<p>
+						<i class="fas fa-caret-left"></i> <a href="http://info.rully.ru/" title="http://info.rully.ru/">На главную</a>
+						<br>
+						<i class="fas fa-caret-right"></i> <a href="/binary-tree/lab/">Лабораторная работа</a>
+					</p>
+				</header>
+				<hr>
+			</aside>
+			<aside class="col-md aside-device" style="position: sticky; top: 0; z-index: 111111; padding-top: 16px; padding-bottom: 16px;">
+				<button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside > nav" data-toggle="collapse" style="margin-top: 0;">
+					Меню
+				</button>
+				<nav class="collapse d-md-block">
+					<ol start="1">
+						<li><a href="#1">Краткие теоретические сведения</a></li>
+						<li><a href="#2">Обход дерева</a></li>
+					</ol>
+				</nav>
+			</aside>
+			<!-- End Aside Device-->
+
+			<main class="col-md markdown-body">
+
+			<h2 id="1">1. Краткие теоретические сведения</h2>
+			<div class="block__text text-justify">
+				&#8226; Бинарное дерево – это динамическая структура данных, состоящая из узлов, каждый из которых содержит, кроме данных, не более двух ссылок на различные бинарные деревья. На каждый узел имеется ровно одна ссылка.
+				<br>
+				&#8226; Описать такую структуру можно следующим образом:
+				<pre class="highlight"><code data-language="c" id="">struct point
+{
+    int data;//информационное поле
+    point *left;//адрес левого поддерева
+    point *right;//адрес правого поддерева
+};</code></pre>
+				&#8226; Начальный узел называется корнем дерева. Узел, не имеющий поддеревьев, называется листом. Исходящие узлы называются предками, входящие — потомками. Высота дерева определяется количеством уровней, на которых располагаются его узлы.
+				<br>
+				&#8226; Если дерево организовано таким образом, что для каждого узла все ключи его левого поддерева меньше ключа этого узла, а все ключи его правого поддерева — больше, оно называется деревом поиска. Одинаковые ключи не допускаются. В дереве поиска можно найти элемент по ключу, двигаясь от корня и переходя на левое или правое поддерево в зависимости от значения ключа в каждом узле. Такой поиск гораздо эффективнее поиска по списку, поскольку время поиска определяется высотой дерева, а она пропорциональна двоичному логарифму количества узлов.
+				<br>
+				&#8226; В идеально сбалансированном дереве количество узлов справа и слева отличается не более чем на единицу.
+				<br>
+				&#8226; Линейный список можно представить как вырожденное бинарное дерево, в котором каждый узел имеет не более одной ссылки. Для списка среднее время поиска равно половине длины списка.
+				<br>
+				&#8226; Деревья и списки являются рекурсивными структурами, т. к. каждое поддерево также является деревом. Таким образом, дерево можно определить как рекурсивную структуру, в которой каждый элемент является:
+				<br>
+				&#8195;&#8195;либо пустой структурой;
+				<br>
+				&#8195;&#8195;либо элементом, с которым связано конечное число поддеревьев.
+				<br>
+				&#8226; Действия с рекурсивными структурами удобнее всего описываются с помощью рекурсивных алгоритмов.
+			</div>
+
+			<h2 id="2">2. Обход дерева</h2>
+			<div class="block__text text-justify">
+				<br> Для того, чтобы выполнить определенную операцию над всеми узлами дерева, все узлы надо обойти. Такая задача называется обходом дерева. При обходе узлы должны посещаться в определенном порядке. Существуют три принципа упорядочивания. Рассмотрим дерево, представленное на рисунке 1:
+				<img src="img/a60043fd.png" alt="Рисунок 1">
+				<p style="text-align: center;">Рисунок 1 – Бинарное дерево</p>
+				<br>
+				&#8226; На этом дереве можно определить три метода упорядочивания:
+				<br>
+				Слева направо: Левое поддерево – Корень – Правое поддерево;
+				<br>
+				Сверху вниз: Корень – Левое поддерево – Правое поддерево;
+				<br>
+				Снизу вверх: Левое поддерево – Правое поддерево – Корень.
+				<br>
+				&#8226; Эти три метода можно сформулировать в виде рекурсивных алгоритмов.
+				<pre class="highlight"><code data-language="c" id="">void Run(point*p)
+//обход слева направо
+{
+    if(p)
+	{
+        &#60;обработка p-&#62;data&#62;
+        Run(p-&#62;left);//переход к левому поддереву
+        Run(p-&#62;right);//переход к правому поддереву
+    }
+}</code></pre>
+				&#8226; Если в качестве операции обработки узла поставить операцию вывода информационного поля, то мы получим функцию для печати дерева.
+			</div>
+		</main>
+		</div><!-- End .row-->
+		</div><!-- End .container-->
+
+		<footer>
+	<div class='container'>
+		<div class="footer-body">
+			
+		</div>
+	</div>
+</footer>
+
+	</div> <!-- End .wrapper -->
+
+	<!-- Scripts -->
+	
+
+<div class="popup popup-video">
+	<div class="popup-table table">
+		<div class="cell">
+			<div class="popup-close"></div>
+			<div class="popup-video__value"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/rainbow-custom.min.js"></script>
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/vendors.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/custom.js" ></script>
+
+
+</body>
+</html>

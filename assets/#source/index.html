@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Методы сортировки и поиска в C++</title>
+	<!-- Meta Data -->
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Dmitry Gorshkov">
+	<meta name="description" content="Конспект занятия по Методам поиска и сортировки, реализованных на C++, и все сопутсвующие документы, картинки, примеры кода.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- <meta name="robots" content="noindex, nofollow" /> -->
+	
+	<!-- Links -->
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/hdx.css">
+	<link rel="stylesheet" href="css/themes/kimbie-light.css">
+
+	<!-- Head Scripts -->
+	<script src="https://kit.fontawesome.com/49e499dad5.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+	<div class="container">
+		<div class="header-body">
+			
+		</div>
+	</div>
+</header>
+		<div class='container'>
+			<a href="/slides" class=""><i class="fas fa-arrow-left"></i> СЛАЙДЫ</a>
+			<br>
+			<br>
+			<h1 class="h-ul_b">Методы сортировки и поиска</h1>
+			<br>
+			
+			<!-- Max part-->
+			<div class="block__text">
+				<h2 style="font-weight: bold;">Методы поиска</h2>
+				<a href="/sources/LR_AlgPoisk.docx">Лабораторная работа (.docx file)</a>
+				<br>
+				<h3 class="h-ul_b">Линейный поиск</h3>
+				&#8226; Линейный, или исчерпывающий, поиск циклически проходит по массиву, пытаясь отыскать целевой элемент. На рисунке таким элементом является число 77.
+					<img src="img/linesearch.jpg" alt="">
+
+			</div>
+			<br>
+			<div class="block__text">
+				&#8226; В отличие от бинарного и интерполяционного поиска, линейный работает не с массивами, а со связными списками, где нельзя запросто перепрыгнуть из одной части в другую. Списки могут быть и несортированными, но с отсортированными алгоритм экономит значительную часть времени: он останавливается, дойдя до элемента со значением, превышающим целевое, и не ведет дальнейший поиск того, чего заведомо не существует.
+				&#8226; Линейный поиск намного медленнее, чем бинарный или интерполяционный. Главное его преимущество заключается в том, что он работает со связными и не- сортированными списками.
+			</div>
+			<br>
+			<div class="block__text">
+				&#8226; В этой главе описано несколько различных алгоритмов сортировки. Одни из них — сортировка вставкой, выбором и слиянием — более сложные, но зато быстро- действенные. Другие, например сортировка подсчетом, не используют сравнение элементов и могут преодолевать ограничение O ( N x log N ), работая удивительно эффективно при правильных условиях.
+			</div>
+			<br>
+			<div class="block__spollers spollers">
+				<div class="spollers__item">
+					<div class="spollers__title spoller closeall">Код Линейного поиска (развернуть)...</div>
+					<div class="spollers__text">
+			<pre class="highlight"><code>
+<span class="nt">int</span> LINEsearch(<span class="nt">int</span> arr[], <span class="nt">int</span> size, <span class="nt">int</span> key)
+{
+	for (<span class="s">int </span> i = <span class="s">0</span> ;<span class="s">i </span> < <span class="s"> size ;</span> i++)
+	<span class="nt">if</span> (arr[i] == key) return i; <span class="na">// сравнение каждого элемента массива с ключем, если условие выполняется то возвращаем в main, индекс элемента</span>
+	}
+	<span class="nt">return</span> -1;
+}
+			</code></pre>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="block__text">
+				<h3 class="h-ul_b">Бинарный поиск</h3> 
+				&#8226; В бинарном поиске алгоритм отслеживает наименьший и наибольший индек- сы элементов массива — min и max. Изначально они равны первому (нулевому) и последнему индексу соответственно. Затем алгоритм рассчитывает индекс, на- ходящийся между ними, то есть mid. Если целевое значение меньше mid, алго- ритм сбрасывает max, чтобы начать новый поиск в левой половине массива; если оно больше — сбрасывается min и новый поиск ведется в правой половине. Если же целевое значение равно mid, алгоритм возвращает его индекс.
+				На рисунке изображен бинарный поиск числа 77.
+
+					<img src="img/binsearch.jpg" alt="">
+
+			</div>
+			<br>
+			<div class="block__text">
+				&#8226; На каждом шаге данный алгоритм делит элементы, среди которых может содержаться целевой, пополам. Если всего элементов N, то после прохождения O(log N) шагов в части массива, где может располагаться целевой элемент, останется только одно значение. Таким образом алгоритм найдет искомое или обнаружит, что действия не принесли должного результата. Это значит, что алгоритм обладает временем работы O(log N).
+				
+			</div>
+			<br>
+			<div class="block__spollers spollers">
+				<div class="spollers__item">
+					<div class="spollers__title spoller closeall">Код Бинарного поиска (BINsearch)(развернуть)...</div>
+					<div class="spollers__text">
+			<pre class="highlight">
+				<button class="btn-copy" data-clipboard-target="#BINsearch">COPY</button>
+				<code id="BINsearch">
+<span class="nt">void</span> BINsearch(<span class="nt">int</span> arr[], <span class="nt">int</span> size, <span class="nt">int</span> key)
+{
+	<span class="nt">int</span> right =size;
+	<span class="nt">int</span> left = 0;
+	<span class="nt">int</span> mid;
+	while ((<span class="s">left</span> <= <span class="s">right</span>) && (<span class="s">flag </span> != <span class="s">true</span>))<span class="na">// пока существует массив и не найдено число</span>
+	{
+	
+	mid = (left + right)/2; <span class="na">//находим серединный индекс массива</span>
+	
+	<span class="nt">if</span> (arr[mid] == key) flag = true; <span class="na">// проверяем ключ со серединным элементом</span>
+	<span class="nt">if</span> (arr[mid] > key) right = mid -1; <span class="na">// проверяем, какую часть нужно отбросить, если условие выполняется, то отбрасываем правую часть</span>
+	<span class="nt">else</span> left = mid +1; <span class="na">// Отбрасываем левую часть </span>
+	}
+	
+	<span class="nt">if</span> (flag) <span class="nt"> cout </span> << "Индекс элемента"<<<span class="nt"> key</span><<" в массиве равен: " << <span class="nt">mid</span><< endl; <span class="na">// вывод результата поиска на экран</span>
+	<span class="nt">else</span>  <span class="nt"> cout </span> << "Извините, такого элемента нет в массиве  <span class="nt">\n</span>";
+			</code></pre>
+					</div>
+				</div>
+			</div>
+			<br>
+			<!-- End Max part-->
+
+			<!-- Dima's part-->	
+			<h2 class="h_b">Методы сортировки</h2>
+			<a href="/sources/LR_Sort.docx">Лабораторная работа (.docx file)</a>
+			<br>
+			<!-- Big 'O' Section-->	
+			<h3 class="h-ul_b">Большое 'О'</h3>
+			<h4 class="h_b">Асимптотический анализ</h4>
+			<div class="block__text">
+				&#8226; Когда мы говорим об измерении сложности алгоритмов, мы подразумеваем анализ времени, которое потребуется для обработки очень большого набора данных. Такой анализ называют асимптотическим. Сколько времени потребуется на обработку массива из десяти элементов? Тысячи? Десяти миллионов? Если алгоритм обрабатывает тысячу элементов за пять миллисекунд, что случится, если мы передадим в него миллион? Будет ли он выполняться пять минут или пять лет? Не стоит ли выяснить это раньше заказчика?
+			</div>
+			<br>
+			<h4 class="h_b">Порядок роста</h4>
+			<div class="block__text">
+				&#8226; Порядок роста описывает то, как сложность алгоритма растет с увеличением размера входных данных. Чаще всего он представлен в виде O-нотации (от нем. «Ordnung» — порядок) : O(f(x)), где f(x) — формула, выражающая сложность алгоритма. В формуле может присутствовать переменная n, представляющая размер входных данных. Ниже приводится список наиболее часто встречающихся порядков роста, но он ни в коем случае не полный.
+			</div>
+			<br>
+			<h4 class="h_b">Константный — O(1)</h4>
+			<div class="block__text">
+				&#8226; Порядок роста O(1) означает, что вычислительная сложность алгоритма не зависит от размера входных данных. Следует помнить, однако, что единица в формуле не значит, что алгоритм выполняется за одну операцию или требует очень мало времени. Он может потребовать и микросекунду, и год. Важно то, что это время не зависит от входных данных.
+			</div>
+			<div class="spollers__item">
+				<div class="spollers__title spoller">Код (развернуть)...</div>
+				<div class="spollers__text">
+			<pre class="highlight"><button class="btn-copy" data-clipboard-target="#GetCount">COPY</button><code data-language="c" id="GetCount">
+public int GetCount(int[] items)
+{
+	return items.Length;
+}
+			</code></pre>
+				</div>
+			</div>
+			<br>
+			<h4 class="h_b">Линейный — O(n)</h4>
+			<div class="block__text">
+				&#8226; Порядок роста O(n) означает, что сложность алгоритма линейно растет с увеличением входного массива. Если линейный алгоритм обрабатывает один элемент пять миллисекунд, то мы можем ожидать, что тысячу элементов он обработает за пять секунд.
+
+				Такие алгоритмы легко узнать по наличию цикла по каждому элементу входного массива.
+			</div>
+			<div class="spollers__item">
+				<div class="spollers__title spoller">Код (развернуть)...</div>
+				<div class="spollers__text">
+			<pre class="highlight"><button class="btn-copy" data-clipboard-target="#GetSum">COPY</button><code data-language="c" id="GetSum">
+public long GetSum(int[] items)
+{
+	long sum = 0;
+	foreach (int i in items)
+	{
+		sum += i;
+	}
+
+	return sum;
+}
+			</code></pre>
+				</div>
+			</div>
+			<br>
+			<h4 class="h_b">Логарифмический – O( log n)</h4>
+			<div class="block__text">
+				&#8226; Порядок роста O( log n) означает, что время выполнения алгоритма растет логарифмически с увеличением размера входного массива. (Прим. пер.: в анализе алгоритмов по умолчанию используется логарифм по основанию 2). Большинство алгоритмов, работающих по принципу «деления пополам», имеют логарифмическую сложность. Метод Contains бинарного дерева поиска (binary search tree) также имеет порядок роста O(log n).
+			</div>
+			<br>
+			<h4 class="h_b">Линеарифметический — O(n·log n)</h4>
+			<div class="block__text">
+				&#8226; Линеарифметический (или линейно-логарифмический) алгоритм имеет порядок роста O(n·log n). Некоторые алгоритмы типа «разделяй и властвуй» попадают в эту категорию. В следующих частях мы увидим два таких примера — сортировка слиянием и быстрая сортировка.
+			</div>
+			<br>
+			<h4 class="h_b">Квадратичный — O(n<sup>2</sup>)</h4>
+			<div class="block__text">
+				&#8226; Время работы алгоритма с порядком роста O(n<sup>2</sup>) зависит от квадрата размера входного массива. Несмотря на то, что такой ситуации иногда не избежать, квадратичная сложность — повод пересмотреть используемые алгоритмы или структуры данных. Проблема в том, что они плохо масштабируются. Например, если массив из тысячи элементов потребует
+				1 000 000 операций, массив из миллиона элементов потребует 1 000 000 000 000 операций. Если одна операция требует миллисекунду для выполнения, квадратичный алгоритм будет обрабатывать миллион элементов 32 года. Даже если он будет в сто раз быстрее, работа займет 84 дня.
+				<br>
+				&#8226; Мы увидим пример алгоритма с квадратичной сложностью, когда будем изучать пузырьковую сортировку.
+			</div>
+			<br>
+			<h4 class="h_b">Наилучший, средний и наихудший случаи</h4>
+			<div class="block__text">
+				&#8226; Что мы имеем в виду, когда говорим, что порядок роста сложности алгоритма — O(n)? Это усредненный случай? Или наихудший? А может быть, наилучший?
+				<br>
+				&#8226; Обычно имеется в виду наихудший случай, за исключением тех случаев, когда наихудший и средний сильно отличаются. К примеру, мы увидим примеры алгоритмов, которые в среднем имеют порядок роста O(1), но периодически могут становиться O(n) (например, <code> ArrayList.add</code>). В этом случае мы будем указывать, что алгоритм работает в среднем за константное время, и объяснять случаи, когда сложность возрастает.
+				<br>
+				&#8226; Самое важное здесь то, что O(n) означает, что алгоритм потребует <b>не более</b> n шагов.
+			</div>
+			<br>
+			<h4 class="h_b">Что мы измеряем?</h4>
+			<div class="block__text">
+				&#8226; При измерении сложности алгоритмов и структур данных мы обычно говорим о двух вещах: количество операций, требуемых для завершения работы (вычислительная сложность), и объем ресурсов, в частности, памяти, который необходим алгоритму (пространственная сложность).
+				<br>
+				&#8226; Алгоритм, который выполняется в десять раз быстрее, но использует в десять раз больше места, может вполне подходить для серверной машины с большим объемом памяти. Но на встроенных системах, где количество памяти ограничено, такой алгоритм использовать нельзя.
+				<br>
+				&#8226; В этих статьях мы будем говорить о вычислительной сложности, но при рассмотрении алгоритмов сортировки затронем также вопрос ресурсов.
+				<br>
+				&#8226; Операции, количество которых мы будем измерять, включают в себя:
+				<br>
+				&#8212; сравнения («больше», «меньше», «равно»);<br>
+				&#8212; присваивания;<br>
+				&#8212; выделение памяти.<br>
+				То, какие операции мы учитываем, обычно ясно из контекста.
+				<br>
+				&#8226; К примеру, при описании алгоритма поиска элемента в структуре данных мы почти наверняка имеем в виду операции сравнения. Поиск — это преимущественно процесс чтения, так что нет смысла делать присваивания или выделение памяти.
+				<br>
+				&#8226; Когда мы говорим о сортировке, мы можем учитывать как сравнения, так и выделения и присваивания. В таких случаях мы будем явно указывать, какие операции мы рассматриваем.
+			</div>
+			<br>
+			<pre class="highlight">
+<span class="c1">ИСТОЧНИК:</span> <a href="https://tproger.ru/translations/algorithms-and-data-structures/" title="https://tproger.ru/translations/algorithms-and-data-structures/" target="_blank"><span class="c1">tproger.ru/translations/algorithms-and-data-structures/</span></a>
+<span class="c1">Дополнительные материалы по теме:</span> <a href="https://habr.com/ru/post/104219/" title="https://habr.com/ru/post/104219/" target="_blank"><span class="c1">habr.com/ru/post/104219/</span></a></pre>
+			<!-- End Big 'O' Section-->	
+
+			<!-- Sorts -->
+				<!-- Merge Sort Section-->	
+			<h3 class="h-ul_b">Сортировка слиянием</h3>
+			<table>
+				<tbody>
+				<tr>
+				<td><b>Сложность</b></td>
+				<td>Наилучший случай</td>
+				<td>В среднем</td>
+				<td>Наихудший случай</td>
+				</tr>
+				<tr>
+				<td>Время</td>
+				<td>O(n·log&thinsp;n)</td>
+				<td>O(n·log&thinsp;n)</td>
+				<td>O(n·log&thinsp;n)</td>
+				</tr>
+				<tr>
+				<td>Память</td>
+				<td>O(n)</td>
+				<td>O(n)</td>
+				<td>O(n)</td>
+				</tr>
+				</tbody>
+			</table>
+			<h4 class="h_b">Метод Swap</h4>
+			<div class="block__text">
+				&#8226; Для упрощения кода и улучшения читаемости мы введем метод <code>Swap</code>, который будет менять местами значения в массиве по индексу.
+			</div>
+			<div class="spollers__item">
+				<div class="spollers__title spoller">Код Swap Функции (развернуть)...</div>
+				<div class="spollers__text">
+					<pre class="highlight"><button class="btn-copy" data-clipboard-target="#_pivotRng">COPY</button><code data-language="c" id="_pivotRng">
+void Swap(T[] items, int left, int right)
+{
+	if (left != right)
+	{
+		T temp = items[left];
+		items[left] = items[right];
+		items[right] = temp;
+	}
+}
+					</code></pre>
+				</div>
+			</div><!-- End .spoillers__item -->
+			<br>
+			<h4 class="h_b">Разделяй и властвуй</h4>
+			<div class="block__text">
+				&#8226; До сих пор мы рассматривали линейные алгоритмы. Они используют мало дополнительной памяти, но имеют квадратичную сложность. На примере сортировки слиянием мы посмотрим на алгоритм типа «разделяй и властвуй» (divide and conquer).
+				<br>
+				&#8226; Алгоритмы этого типа работают, разделяя крупную задачу на более мелкие, решаемые проще. Мы пользуемся ими каждый день. К примеру, поиск в телефонной книге — один из примеров такого алгоритма.
+				<br>
+				&#8226; Если вы хотите найти человека по фамилии Петров, вы не станете искать, начиная с буквы А и переворачивая по одной странице. Вы, скорее всего, откроете книгу где-то посередине. Если попадете на букву Т, перелистнете несколько страниц назад, возможно, слишком много — до буквы О. Тогда вы пойдете вперед. Таким образом, перелистывая туда и обратно все меньшее количество страниц, вы, в конце концов, найдете нужную.
+				<br>
+				&#8226; Насколько эффективны эти алгоритмы?
+				<br>
+				&#8226; Предположим, что в телефонной книге 1000 страниц. Если вы открываете ее на середине, вы отбрасываете 500 страниц, в которых нет искомого человека. Если вы не попали на нужную страницу, вы выбираете правую или левую сторону и снова оставляете половину доступных вариантов. Теперь вам надо просмотреть 250 страниц. Таким образом мы делим нашу задачу пополам снова и снова и можем найти человека в телефонной книге всего за 10 просмотров. Это составляет 1% от всего количества страниц, которые нам пришлось бы просмотреть при линейном поиске.
+			</div>
+			<br>
+			<h4 class="h_b">Сортировка слиянием</h4>
+			<div class="block__text">
+				&#8226; При сортировке слиянием мы разделяем массив пополам до тех пор, пока каждый участок не станет длиной в один элемент. Затем эти участки возвращаются на место (сливаются) в правильном порядке.
+				<br>
+				Давайте посмотрим на такой массив:
+				<img src="img/data_structures_047.jpg" alt="">
+				Разделим его пополам:
+				<img src="img/data_structures_048.jpg" alt="">
+				И будем делить каждую часть пополам, пока не останутся части с одним элементом:
+				<img src="img/data_structures_049.webp" alt="">
+				Теперь, когда мы разделили массив на максимально короткие участки, мы сливаем их в правильном порядке.
+				<img src="img/data_structures_050.webp" alt="">
+				Сначала мы получаем группы по два отсортированных элемента, потом «собираем» их в группы по четыре элемента и в конце собираем все вместе в отсортированный массив.
+				<img src="img/data_structures_051.webp" alt="">
+				&#8226; Для работы алгоритма мы должны реализовать следующие операции:
+				<br>
+				&#8195;	&#8195;1. Операцию для рекурсивного разделения массива на группы (метод Sort).
+				<br>
+				&#8195;	&#8195;2. Слияние в правильном порядке (метод Merge).
+				<br>
+				&#8226; Стоит отметить, что в отличие от линейных алгоритмов сортировки, сортировка слиянием будет делить и склеивать массив вне зависимости от того, был он отсортирован изначально или нет. Поэтому, несмотря на то, что в худшем случае он отработает быстрее, чем линейный, в лучшем случае его производительность будет ниже, чем у линейного. Поэтому сортировка слиянием — не самое лучшее решение, когда надо отсортировать частично упорядченный массив.
+				<br>
+			</div><!-- End .block__text -->
+			<div class="spollers__item">
+				<div class="spollers__title spoller">Код Сортировки Слиянием(Merge Sort)(развернуть)...</div>
+				<div class="spollers__text">
+					<pre class="highlight"><button class="btn-copy" data-clipboard-target="#Sort">COPY</button><code data-language="c" id="Sort">
+public void Sort(T[] items)
+{
+    if (items.Length <= 1)
+    {
+         return;
+    }       
+
+    int leftSize = items.Length / 2;
+    int rightSize = items.Length - leftSize;
+    T[] left = new T[leftSize];
+    T[] right = new T[rightSize];
+    Array.Copy(items, 0, left, 0, leftSize);
+    Array.Copy(items, leftSize, right, 0, rightSize);
+    Sort(left);
+    Sort(right);
+    Merge(items, left, right);
+}   
+
+private void Merge(T[] items, T[] left, T[] right)
+{
+    int leftIndex = 0;
+    int rightIndex = 0;
+    int targetIndex = 0;
+    int remaining = left.Length + right.Length;
+    while(remaining > 0)
+    {
+        if (leftIndex >= left.Length)
+        {
+            items[targetIndex] = right[rightIndex++];
+        }
+        else if (rightIndex >= right.Length)
+        {
+            items[targetIndex] = left[leftIndex++];
+        }
+        else if (left[leftIndex].CompareTo(right[rightIndex]) < 0)
+        {
+            items[targetIndex] = left[leftIndex++];
+        }
+        else
+        {
+            items[targetIndex] = right[rightIndex++];
+        }
+ 
+        targetIndex++;
+        remaining--;
+    }
+}
+					</code></pre>
+				</div>
+			</div><!-- End .spoillers__item -->
+			<!-- End Merge Sort Section-->
+			<br>
+			<!-- Quick Sort Section-->	
+			<h3 class="h-ul_b">Быстрая сортировка</h3>
+			<table>
+				<tbody>
+					<tr>
+						<td><b>Сложность</b></td>
+						<td>Наилучший случай</td>
+						<td>В среднем</td>
+						<td>Наихудший случай</td>
+					</tr>
+					<tr>
+						<td>Время</td>
+						<td>O(n·log&thinsp;n)</td>
+						<td>O(n·log&thinsp;n)</td>
+						<td>O(n<sup>2</sup>)</td>
+					</tr>
+					<tr>
+						<td>Память</td>
+						<td>O(n)</td>
+						<td>O(n)</td>
+						<td>O(n)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<h4 class="h_b">Разделяй и властвуй</h4>
+			<div class="block__text">
+				&#8226; Быстрая сортировка — это еще один алгоритм типа «разделяй и властвуй». Он работает, рекурсивно повторяя следующие шаги:
+				<br>
+				&#8195;&#8195; 1. Выбрать ключевой индекс и разделить по нему массив на две части. Это можно делать разными способами, но в данной статье мы используем случайное число.
+				<br>
+				&#8195;&#8195; 2. Переместить все элементы больше ключевого в правую часть массива, а все элементы меньше ключевого — в левую. Теперь ключевой элемент находится в правильной позиции — он больше любого элемента слева и меньше любого элемента справа.
+				<br>
+				&#8195;&#8195; 3. Повторяем первые два шага, пока массив не будет полностью отсортирован.
+				<br>
+				&#8226; Давайте посмотрим на работу алгоритма на следующем массиве:
+				<img src="img/data_structures_052.webp" alt="">
+				Сначала мы случайным образом выбираем ключевой элемент:
+				<pre class="highlight"><code data-language="c">int pivotIndex = _pivotRng.Next(left, right);</code></pre>
+				<img src="img/data_structures_053.webp" alt="">
+				Теперь, когда мы знаем ключевой индекс (4), мы берем значение, находящееся по этому индексу (6), и переносим значения в массиве так, чтобы все числа больше или равные ключевому были в правой части, а все числа меньше ключевого — в левой. Обратите внимание, что в процессе переноса значений индекс ключевого элемента может измениться (мы увидим это вскоре).
+				<br>
+				Перемещение значений осуществляется методом <code>partition</code>.
+				<img src="img/data_structures_054.jpg" alt="">
+				На этом этапе мы знаем, что значение 6 находится на правильной позиции. Теперь мы повторяем этот процесс для правой и левой частей массива.
+				<br>
+				Мы рекурсивно вызываем метод quicksort на каждой из частей. Ключевым элементом в левой части становится пятерка. При перемещении значений она изменит свой индекс. Главное — помнить, что нам важно именно ключевое значение, а не его индекс
+				<img src="img/data_structures_055.webp" alt="">
+				Снова применяем быструю сортировку:
+				<img src="img/data_structures_056.webp" alt="">
+				И еще раз:
+				<img src="img/data_structures_057.jpg" alt="">
+				У нас осталось одно неотсортированное значение, а, поскольку мы знаем, что все остальное уже отсортировано, алгоритм завершает работу.
+				<br>
+			</div><!-- End .block__text -->
+			<div class="spollers__item">
+				<div class="spollers__title spoller">Код Быстрой Сортировки (Quick Sort)(развернуть)...</div>
+				<div class="spollers__text">
+					<pre class="highlight"><button class="btn-copy" data-clipboard-target="#_pivotRng">COPY</button><code data-language="c" id="_pivotRng">
+Random _pivotRng = new Random();
+
+public void Sort(T[] items)
+{
+	quicksort(items, 0, items.Length - 1);
+}
+	
+private void quicksort(T[] items, int left, int right)
+{
+	if (left < right)
+	{
+		int pivotIndex = _pivotRng.Next(left, right);
+		int newPivot = partition(items, left, right, pivotIndex);
+	
+		quicksort(items, left, newPivot - 1);
+		quicksort(items, newPivot + 1, right);
+	}
+}
+	
+private int partition(T[] items, int left, int right, int pivotIndex)
+{
+	T pivotValue = items[pivotIndex];
+	
+	Swap(items, pivotIndex, right);
+	
+	int storeIndex = left;
+	
+	for (int i = left; i < right; i++)
+	{
+		if (items[i].CompareTo(pivotValue) < 0)
+		{
+			Swap(items, i, storeIndex);
+			storeIndex += 1;
+		}
+	}
+	
+	Swap(items, storeIndex, right);
+	return storeIndex;
+}
+					</code></pre>
+				</div>
+			</div><!-- End .spoillers__item -->
+			<br>
+			<pre class="highlight">
+<span class="c1">ИСТОЧНИК:</span> <a href="https://tproger.ru/translations/sorting-for-beginners/" title="https://tproger.ru/translations/sorting-for-beginners/" target="_blank"><span class="c1">tproger.ru/translations/sorting-for-beginners/</span></a>
+<span class="c1">Дополнительные материалы по теме:</span> <a href="#" title="#" target="_blank"><span class="c1">/</span></a></pre>
+			<!-- End Quick Sort Section-->		
+			<!-- End Sorts-->
+
+			<h2 class="h-ul_b">Блок-схемы сортировок</h2>
+			<div class="block__gallery gallery-block gallery">
+				<a href="img/block_schemes/block_scheme01.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme01.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme02.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme02.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme03.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme03.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme04.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme04.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme05.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme05.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme06.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme06.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme07.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme07.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme08.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme08.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme09.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme09.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme10.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme10.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme11.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme11.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme12.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme12.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme13.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme13.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme14.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme14.jpg" alt=""></a>
+				<a href="img/block_schemes/block_scheme15.jpg" class="gallery-block__item">
+					<img src="img/block_schemes/block_scheme15.jpg" alt=""></a>
+			</div>
+
+		</div><!-- End .container-->
+
+		<footer>
+	<div class='container'>
+		<div class="footer-body">
+			
+		</div>
+	</div>
+</footer>
+
+	</div> <!-- End .wrapper -->
+
+	<!-- Scripts -->
+	
+
+<div class="popup popup-video">
+	<div class="popup-table table">
+		<div class="cell">
+			<div class="popup-close"></div>
+			<div class="popup-video__value"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/rainbow-custom.min.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/vendors.js"></script>
+<script src="js/main.js"></script>
+<script src="js/custom.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://info.rully.ru/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/search-methods/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/sort-methods/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/hash-table/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/binary-tree/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/classes/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/inheritance/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/overload/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/containers/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/class-template/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/events/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/exceptions/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/stream/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/stl/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/uml/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/trees/presentation/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/trees/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/trees/open-gl/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/graphs/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/creative-calculator/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/open-gl/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/win-forms/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/examples/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/search-methods/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/sort-methods/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/hash-table/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/binary-tree/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/classes/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/inheritance/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/overload/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/containers/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/class-template/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/events/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/exceptions/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/stream/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/stl/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/uml/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/trees/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/graphs/lab/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/graphs/presentation/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/open-gl/instruction/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://info.rully.ru/materials/open-gl/presentation/</loc>
+  <lastmod>2020-05-01T17:09:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

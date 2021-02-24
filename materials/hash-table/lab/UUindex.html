@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	
+	<title>Лабораторная работа №18</title>
+	<!-- Meta Data -->
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Dmitry Gorshkov">
+	<meta name="description" content="Лабораторная работа по Хеш-таблицам. Материал подготовлен кафедрой ИТАС ПНИПУ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- <meta name="robots" content="noindex, nofollow" /> -->
+	<!-- Links -->
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../css/custom.css">
+	<link rel="stylesheet" href="../../css/hdx.css">
+	<link rel="stylesheet" href="../../css/themes/kimbie-light.css">
+	<!-- Head Scripts -->
+	<script src="https://kit.fontawesome.com/49e499dad5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class='container-fluid'>
+			<div class="row">
+			<!-- Aside Desktop -->
+			<aside class="col-md aside-desktop">
+			
+				<header><h1><a href="http://info.rully.ru/hash-table/lab" title="http://info.rully.ru/hash-table/lab">Лабораторная работа №18</a></h1>
+					<p>
+						<i class="fas fa-caret-left"></i> <a href="http://info.rully.ru/" title="http://info.rully.ru/">На главную</a>
+						<br>
+						<i class="fas fa-caret-left"></i> <a href="../" title="http://info.rully.ru/hash-table/">Хеш-таблицы</a>
+					</p>
+				</header>
+				<hr>
+				<button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside > nav" data-toggle="collapse">
+					Меню
+				</button>
+				<nav class="collapse d-md-block">
+					<ol start="1">
+						<li><a href="#1">Постановка задачи</a></li>
+						<li><a href="#2">Варианты заданий</a></li>
+						<li><a href="#3">Методические указания</a></li>
+						<li><a href="#4">Содержание отчета</a></li>
+						<li><a href="#5">Отправить результат работы</a></li>
+					</ol>
+				</nav>
+				<hr>
+			</aside>
+			<!-- End Aside Desktop-->
+			<!-- Aside Device -->
+			<aside class="col-md aside-device">
+			
+				<header><h1><a href="http://info.rully.ru/hash-table/lab" title="http://info.rully.ru/hash-table/lab">Лабораторная работа №18</a></h1>
+					<p>
+						<i class="fas fa-caret-left"></i> <a href="http://info.rully.ru/" title="http://info.rully.ru/">На главную</a>
+						<br>
+						<i class="fas fa-caret-left"></i> <a href="../" title="http://info.rully.ru/hash-table/">К хеш-функциям</a>
+					</p>
+					<hr>
+				</header>
+			</aside>
+			<aside class="col-md aside-device" style="position: sticky; top: 0; z-index: 111111; padding-top: 16px; padding-bottom: 16px;">
+				<button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside > nav" data-toggle="collapse" style="margin-top: 0;">
+					Меню
+				</button>
+				<nav class="collapse d-md-block">
+					<ol start="1">
+						<li><a href="#1">Постановка задачи</a></li>
+						<li><a href="#2">Варианты заданий</a></li>
+						<li><a href="#3">Методические указания</a></li>
+						<li><a href="#4">Содержание отчета</a></li>
+						<li><a href="#5">Отправить результат работы</a></li>
+					</ol>
+				</nav>
+			</aside>
+			<!-- End Aside Device-->
+
+			<main class="col-md markdown-body">
+
+			<h2 id="1">1. Постановка задачи</h2>
+			<div class="block__text text-justify">
+				&#8195;&#8195;1.&#8195;Создать динамический массив из записей (в соответствии с вариантом), содержащий не менее 100 элементов. Для заполнения элементов массива использовать ДСЧ.
+				<br>
+				&#8195;&#8195;2.&#8195;Выполнить поиск элемента в массиве по ключу в соответствии с вариантом. Для поиска использовать хеш-таблицу.
+				<br>
+				&#8195;&#8195;3.&#8195;Подсчитать количество коллизий при размере хеш-таблицы 40, 75 и 90 элементов.
+			</div>
+
+			<h2 id="2">2. Варианты заданий</h2>
+			
+			<table>
+				<thead>
+					<tr>
+						<td>
+							<b>№ варианта</b>
+						</td>
+						<td>
+							<b>Данные</b>
+						</td>
+						<td>
+							<b>Ключ (string)</b>
+						</td>
+						<td>
+							<b>Хэш-функция</p>
+						</td>
+						<td>
+							<b>Метод хеширования</b>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<tr>
+						<td>
+							<p>1</p>
+						</td>
+						<td>
+							<p>ФИО, группа, рейтинг</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>2</p>
+						</td>
+						<td>
+							<p>ФИО, №счета, сумма</p>
+						</td>
+						<td>
+							<p>№ счета</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>3</p>
+						</td>
+						<td>
+							<p>ФИО, №счета, сумма</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>4</p>
+						</td>
+						<td>
+							<p>ФИО, №паспорта, адрес</p>
+						</td>
+						<td>
+							<p>№ паспорта</p>
+						</td>
+						<td>
+							<p>H(k)= [M(kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>5</p>
+						</td>
+						<td>
+							<p>ФИО, №паспорта, адрес</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>6</p>
+						</td>
+						<td>
+							<p>ФИО, №паспорта, адрес</p>
+						</td>
+						<td>
+							<p>Адрес</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>7</p>
+						</td>
+						<td>
+							<p>ФИО, №телефона, адрес</p>
+						</td>
+						<td>
+							<p>№телефона</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>8</p>
+						</td>
+						<td>
+							<p>ФИО, №телефона, адрес</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>	
+								H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>9</p>
+						</td>
+						<td>
+							<p>ФИО, №телефона, адрес</p>
+						</td>
+						<td>
+							<p>Адрес</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>10</p>
+						</td>
+						<td>
+							<p>ФИО, №паспорта, №телефона</p>
+						</td>
+						<td>
+							<p>№телефона</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>11</p>
+						</td>
+						<td>
+							<p>ФИО, №паспорта, №телефона</p>
+						</td>
+						<td>
+							<p>№паспорта</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>12</p>
+						</td>
+						<td>
+							<p>ФИО, №паспорта, №телефона</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>13</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, адрес</p>
+						</td>
+						<td>
+							<p>дата_рождения</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>14</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, адрес</p>
+						</td>
+						<td>
+							<p>адрес</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>15</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, адрес</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>16</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона</p>
+						</td>
+						<td>
+							<p>дата_рождения</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>17</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона</p>
+						</td>
+						<td>
+							<p>ФИО</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>18</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона</p>
+						</td>
+						<td>
+							<p>№телефона</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>19</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №паспорта</p>
+						</td>
+						<td>
+							<p>№паспорта</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>20</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №паспорта</p>
+						</td>
+						<td>
+							<p>дата_рождения</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>21</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона, №паспорта</p>
+						</td>
+						<td>
+							<p>№телефона</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>22</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона, №паспорта</p>
+						</td>
+						<td>
+							<p>№паспорта</p>
+						</td>
+						<td>
+							<p>	
+								H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>23</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона, №паспорта</p>
+						</td>
+						<td>
+							<p>дата_рождения</p>
+						</td>
+						<td>
+							<p>H(k)=k mod M</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>24</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона, №паспорта</p>
+						</td>
+						<td>
+							<p>№телефона</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод цепочек</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>25</p>
+						</td>
+						<td>
+							<p>ФИО, дата_рождения, №телефона, №паспорта</p>
+						</td>
+						<td>
+							<p>дата_рождения</p>
+						</td>
+						<td>
+							<p>H(k)= [M (kAmod1)], 0&#60;A&#60;1, mod1 – получение дробной части, [] – получение целой части</p>
+						</td>
+						<td>
+							<p>Метод открытой адресации</p>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+
+			<h2 id="3">3. Методические указания</h2>
+			<div class="block__text text-justify">
+				&#8195;&#8195;1.&#8195;Для выбора действий использовать меню.
+				<br>
+				&#8195;&#8195;2.&#8195;Удаление должно осуществляться по ключевому полю и по номеру.
+				<br>
+				&#8195;&#8195;3.&#8195;Корректировка выполняется по ключу и по номеру.
+			</div>
+
+			<h2 id="4">4. Содержание отчета</h2>
+			<div class="block__text text-justify">
+				&#8195;&#8195;1.&#8195;Постановка задачи (общая и для конкретного варианта)
+				<br>
+				&#8195;&#8195;2.&#8195;Анализ задачи
+				<br>
+				&#8195;&#8195;&#8195;&#8226;&#8195;Определения функций для реализации поставленных задач
+				<br>
+				&#8195;&#8195;&#8195;&#8226;&#8195;Определение функции main()
+				<br>
+				&#8195;&#8195;3.&#8195;Блок-схемы основных функций
+				<br>
+				&#8195;&#8195;4.&#8195;Текст программы
+				<br>
+				&#8195;&#8195;5.&#8195;Тесты
+			</div>
+
+			<h2 id="5">5. Отправить результат работы</h2>
+			<form action="sendftp.php" autocomplete="on" enctype="multipart/form-data" method="post" id="form-sendlab">
+				<div class="form-group">
+				<div class="form-group">
+					<label for="member">Выберите Себя из списка</label>
+					<select name="member" id="member"  class="form-control" required>
+						<option value="Брагарь Алексей">Брагарь Алексей</option>
+						<option value="Ваганов Илья">Ваганов Илья</option>
+						<option value="Добровольский Алексей">Добровольский Алексей</option>
+						<option value="Зернин Максим">Зернин Максим</option>
+						<option value="Зиятдинов Расиль">Зиятдинов Расиль</option>
+						<option value="Косых Дарья">Косых Дарья</option>
+						
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="lr">Выберите номер Лабораторной работы</label>
+					<select name="lr" id="lr"  class="form-control" required>
+						<option value="6">6 - Динамические массивы</option>
+						<option value="7">7 - Функции и массивы</option>
+						<option value="8">8 - Структуры</option>
+						<option value="9">9 - Нелинейные уравнения (4-й столбец ЛР7э)</option>
+						<option value="10">10 - Работа с функциями (1–3-й столбцы ЛР7э)</option>
+						<option value="11">11 - Методы сортировки</option>
+						<option value="12">12 - Задача о восьми ферзях</option>
+						<option value="13">13 - Рекурсия</option>
+						<option value="14.1">14.1 - Одно- и двунаправленные списки через структуры (1-2 столбцы)</option>
+						<option value="14.2">14.2 - Стеки и очереди через структуры (1-2 столбцы)</option>
+						<option value="15">15 - Сортировка стека через stl-контейнеры</option>
+						<option value="16">16 - Поиск Бойера-Мура и интерполяция</option>
+						<option value="17">17 - Сортировка подсчётом и быстрая сортировка</option>
+						<option value="18">18 - Поиск данных с помощью хэш-таблиц</option>
+						<option value="19">19 - Бинарные деревья</option>
+						<option value="20">20 - Классы и объекты. Инкапсуляция, конструкторы</option>
+						<option value="21">21 - Простое наследование. Принцип подстановки</option>
+						<option value="22">22 - Наследование. Виртуальные функции. Полиморфизм</option>
+					</select>
+				</div>
+				<div class="form-group" id="drop-area">
+					<label for="file">Загрузите файл <span class="alert-warning">&#8194;Возможно загружать несколько файлов&#8194;</span> </label>
+					<input type="hidden" name="MAX_FILE_SIZE" value="300000">
+					<input type="file" name="userfile" class="form-control-file" id="file" multiple required>
+				</div>
+				<div class="form-group">
+					<p>Контактные данные <span class="alert-warning">&#8194;Оставьте контакты, по которым проверяющий свяжется с вами при возникновении вопросов&#8194;</span> </p>
+					<label for="phone_number">Телефонный номер</label>
+					<input type="text" name="phone_number" id="phone_number" class="form-control mb-2" data-mask="8 (000) 000-00-00" required>
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" class="form-control mb-2">
+					<label for="other">Другие методы связи <span class="alert-warning">&#8194;vk, discord, telegram, whatsapp ...&#8194;</span></label>
+					<input type="text" name="other" id="other" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="add_info">Дополнительная информация</label>
+					<textarea name="add_info" id="add_info"  rows="4" class="form-control"></textarea>
+				</div>
+					
+				
+				<button type="submit" class="btn btn-primary" id="btnSubmit" disabled>Отправить</button>
+				<hr>
+				<div class="alert alert-warning">Форма в разработке</div>
+
+				<div id="form-success-hidden" class="hidden">
+					<hr class="allert-hr">
+					<div class="alert alert-success">Отправлено!</div>
+				</div>
+				<div id="form-danger-hidden" class="hidden">
+					<hr class="allert-hr">
+					<div class="alert alert-danger"><span id="error_num"></span></div>
+				</div>
+				
+			</form>
+		</main>
+		</div><!-- End .row-->
+		</div><!-- End .container-->
+	</div> <!-- End .wrapper -->
+
+	<!-- Scripts -->
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/rainbow-custom.min.js"></script>
+	<script src="../../js/clipboard.min.js"></script>
+	<script src="../../js/vendors.js"></script>
+	<script src="../../js/main.js"></script>
+	<script src="../../js/custom.js" ></script>
+	<script src="../../js/jquery.mask.min.js" ></script>
+	<script src="main.js"></script>
+	
+
+
+</body>
+</html>

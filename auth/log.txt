@@ -1,0 +1,2 @@
+2020-08-29 12:02:48 -//- SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+2020-08-29 12:02:57 -//- SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)

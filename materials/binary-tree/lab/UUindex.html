@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	
+	<title>Лабораторная работа №19</title>
+	<!-- Meta Data -->
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Dmitry Gorshkov">
+	<meta name="description" content="Лабораторная работа №19. Материал подготовлен кафедрой ИТАС ПНИПУ">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- <meta name="robots" content="noindex, nofollow" /> -->
+	<!-- Links -->
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../css/custom.css">
+	<link rel="stylesheet" href="../../css/hdx.css">
+	<link rel="stylesheet" href="../../css/themes/kimbie-light.css">
+
+	<!-- Head Scripts -->
+	<script src="https://kit.fontawesome.com/49e499dad5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class='container-fluid'>
+			<div class="row">
+			<!-- Aside Desktop -->
+			<aside class="col-md aside-desktop">
+			
+				<header><h1><a href="http://info.rully.ru/binary-tree/lab" title="http://info.rully.ru/binary-tree/lab">Лабораторная работа №19</a></h1>
+					<p>
+						<i class="fas fa-caret-left"></i> <a href="http://info.rully.ru/" title="http://info.rully.ru/">На главную</a>
+						<br>
+						<i class="fas fa-caret-left"></i> <a href="../" title="http://info.rully.ru/binary-tree/">Бинарные деревья</a>
+					</p>
+				</header>
+				<hr>
+				<button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside > nav" data-toggle="collapse">
+					Меню
+				</button>
+				<nav class="collapse d-md-block">
+					<ol start="1">
+						<li><a href="#1">Постановка задачи</a></li>
+						<li><a href="#2">Варианты заданий</a></li>
+						<li><a href="#3">Методические указания</a></li>
+						<li><a href="#4">Содержание отчета</a></li>
+						<!--<li><a href="#5">Отправить отчет</a></li>-->
+					</ol>
+				</nav>
+				<hr>
+			</aside>
+			<!-- End Aside Desktop-->
+			<!-- Aside Device -->
+			<aside class="col-md aside-device">
+			
+				<header><h1><a href="http://info.rully.ru/binary-tree/lab" title="http://info.rully.ru/binary-tree/lab">Лабораторная работа №19</a></h1>
+					<p>
+						<i class="fas fa-caret-left"></i> <a href="http://info.rully.ru/" title="http://info.rully.ru/">На главную</a>
+						<br>
+						<i class="fas fa-caret-left"></i> <a href="../" title="http://info.rully.ru/binary-tree/">К бинарным деревьям</a>
+					</p>
+				</header>
+				<hr>
+			</aside>
+			<aside class="col-md aside-device" style="position: sticky; top: 0; z-index: 111111; padding-top: 16px; padding-bottom: 16px;">
+				<button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside > nav" data-toggle="collapse" style="margin-top: 0;">
+					Меню
+				</button>
+				<nav class="collapse d-md-block">
+					<ol start="1">
+						<li><a href="#1">Постановка задачи</a></li>
+						<li><a href="#2">Варианты заданий</a></li>
+						<li><a href="#3">Методические указания</a></li>
+						<li><a href="#4">Содержание отчета</a></li>
+						<!--<li><a href="#5">Отправить отчет</a></li>-->
+					</ol>
+				</nav>
+			</aside>
+			<!-- End Aside Device-->
+
+			<main class="col-md markdown-body">
+
+			<h2 id="1">1. Постановка задачи</h2>
+			<div class="block__text text-justify">
+				&#8195;&#8195;1.&#8195;Сформировать идеально сбалансированное бинарное дерево, тип информационного поля указан в варианте.
+				<br>
+				&#8195;&#8195;2.&#8195;Распечатать полученное дерево.
+				<br>
+				&#8195;&#8195;3.&#8195;Выполнить обработку дерева в соответствии с заданием, вывести полученный результат.
+				<br>
+				&#8195;&#8195;4.&#8195;Преобразовать идеально сбалансированное дерево в дерево поиска.
+				<br>
+				&#8195;&#8195;5.&#8195;Распечатать полученное дерево.
+			</div>
+
+			<h2 id="2">2. Варианты заданий</h2>
+				<div class="block__text text-justify">
+					&#8195;&#8195;1.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти количество элементов с заданным ключом.
+					<br>
+					&#8195;&#8195;2.&#8195;Тип информационного поля <code class="highlight">int</code>. Найти максимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;3.&#8195;Тип информационного поля <code class="highlight">char*</code>. Найти количество листьев в дереве.
+					<br>
+					&#8195;&#8195;4.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти минимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;5.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти высоту дерева.
+					<br>
+					&#8195;&#8195;6.&#8195;Тип информационного поля <code class="highlight">int</code>. Найти среднее арифметическое элементов дерева.
+					<br>
+					&#8195;&#8195;7.&#8195;Тип информационного поля <code class="highlight">char*</code>. Найти количество элементов дерева, начинающихся с заданного символа.
+					<br>
+					&#8195;&#8195;8.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти количество элементов с заданным ключом.
+					<br>
+					&#8195;&#8195;9.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти максимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;10.&#8195;Тип информационного поля <code class="highlight">int</code>. Найти количество листьев в дереве.
+					<br>
+					&#8195;&#8195;11.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти минимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;12.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти высоту дерева.
+					<br>
+					&#8195;&#8195;13.&#8195;Тип информационного поля <code class="highlight">int</code>. Найти среднее арифметическое элементов дерева.
+					<br>
+					&#8195;&#8195;14.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти количество элементов с заданным ключом.
+					<br>
+					&#8195;&#8195;15.&#8195;Тип информационного поля <code class="highlight">char*</code>. Найти количество элементов дерева, начинающихся с заданного символа
+					<br>
+					&#8195;&#8195;16.&#8195;Тип информационного поля <code class="highlight">int</code>. Найти максимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;17.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти количество листьев в дереве.
+					<br>
+					&#8195;&#8195;18.&#8195;Тип информационного поля <code class="highlight">int</code>. Найти минимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;19.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти высоту дерева.
+					<br>
+					&#8195;&#8195;20.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти среднее арифметическое элементов дерева.
+					<br>
+					&#8195;&#8195;21.&#8195;Тип информационного поля <code class="highlight">char*</code>. Найти количество элементов дерева, начинающихся с заданного символа.
+					<br>
+					&#8195;&#8195;22.&#8195;Тип информационного поля <code class="highlight">char</code>. Найти количество элементов с заданным ключом.
+					<br>
+					&#8195;&#8195;23.&#8195;Тип информационного поля <code class="highlight">char*</code>. Найти количество листьев в дереве.
+					<br>
+					&#8195;&#8195;24.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти максимальный элемент в дереве.
+					<br>
+					&#8195;&#8195;25.&#8195;Тип информационного поля <code class="highlight">double</code>. Найти минимальный элемент в дереве.
+				</div>
+			<h2 id="3">3. Методические указания</h2>
+			<div class="block__text text-justify">
+				&#8195;&#8195;1.&#8195;Описания структур для формирования деревьев, а также функции для их обработки сохранить в библиотечном файле с расширением <code class="highlight">.h</code> (например, <code class="highlight">point.h</code>). Функцию <code class="highlight">main(</code>) сохранить в файле с расширением <code class="highlight">.cpp</code>. Библиотечный файл подключить с помощью директивы <code class="highlight">#include “имя_файла.h”</code>.
+				<br>
+				&#8195;&#8195;2.&#8195;Для выделения памяти под информационные поля типа <code class="highlight">char*</code> использовать операцию <code class="highlight">new</code>, для удаления из памяти – операцию <code class="highlight">delete</code>.
+				<br>
+				&#8195;&#8195;3.&#8195;Для формирования элементов дерева написать отдельные функции.
+				<br>
+				&#8195;&#8195;4.&#8195;Для формирования дерева, удаления добавления элементов, поиска заданных элементов написать отдельные функции.
+				<br>
+				&#8195;&#8195;5.&#8195;В функции <code class="highlight">main()</code> должны быть размещены только описания переменных и обращения к соответствующим функциям.
+				<br>
+				&#8195;&#8195;6.&#8195;Если в дереве отсутствуют элементы, соответствующие критерию поиска (например, при удалении элемента с номером <code class="highlight">k</code>, <code class="highlight">k</code> больше, чем количество элементов в списке), должно быть выведено сообщение о том, что требуемые элементы не найдены.
+				<br>
+				&#8195;&#8195;7.&#8195;Интерфейс реализовать с помощью текстового меню.
+			</div>
+
+			<h2 id="4">4. Содержание отчета</h2>
+			<div class="block__text text-justify">
+				&#8195;&#8195;1.&#8195;Постановка задачи (общая и для конкретного варианта)
+				<br>
+				&#8195;&#8195;2.&#8195;Анализ задачи
+				<br>
+				&#8195;&#8195;&#8195;&#8226;&#8195;Определения функций для реализации поставленных задач
+				<br>
+				&#8195;&#8195;&#8195;&#8226;&#8195;Определение функции main()
+				<br>
+				&#8195;&#8195;3.&#8195;Блок-схема
+				<br>
+				&#8195;&#8195;4.&#8195;Текст программы
+				<br>
+				&#8195;&#8195;5.&#8195;Тесты
+			</div>
+
+			<!--<h2 id="5">5. Отправить отчет</h2>
+			<div id="drop-area">
+				<form class="my-form">
+				  <p>Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область</p>
+				  <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+				  <label class="button" for="fileElem">Выбрать изображения</label>
+				  <br>
+				  <progress id="progress-bar" max=100 value=0></progress>
+				</form>
+				<div id="gallery"></div>
+			  </div>-->
+		</main>
+		</div><!-- End .row-->
+		</div><!-- End .container-->
+	</div> <!-- End .wrapper -->
+
+	<!-- Scripts -->
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/rainbow-custom.min.js"></script>
+	<script src="../../js/clipboard.min.js"></script>
+	<script src="../../js/vendors.js"></script>
+	<script src="../../js/main.js"></script>
+	<script src="../../js/custom.js" ></script>
+
+
+</body>
+</html>
